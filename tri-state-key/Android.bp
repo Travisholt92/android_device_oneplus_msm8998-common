@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+//
 // Copyright (C) 2018 The LineageOS Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,12 +13,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-soong_namespace {
+cc_binary {
+    name: "tri-state-key_daemon",
+    init_rc: ["tri-state-key_daemon.rc"],
+    srcs: [
+        "main.cpp",
+        "uevent_listener.cpp",
+    ],
+    cppflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libcutils",
+        "libutils",
+    ],
 }
-subdirs = [
-    "lights",
-    "tri-state-key"
-    "touch"
-    "init"
-]
-

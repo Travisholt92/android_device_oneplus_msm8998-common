@@ -457,6 +457,10 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     Recorder
 
+# tri-state-key
+PRODUCT_PACKAGES += \
+    tri-state-key_daemon
+    
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages
