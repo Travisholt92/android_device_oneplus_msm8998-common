@@ -72,6 +72,13 @@ void property_override(const std::string& name, const std::string& value)
     }
 }
 
+void property_override_dual(char const system_prop[], char const vendor_prop[],
+    char const value[])
+{
+    property_override(system_prop, value);
+    property_override(vendor_prop, value);
+}
+
 void init_target_properties()
 {
     std::string device;
@@ -82,11 +89,13 @@ void init_target_properties()
 
         if (!strncmp(device.c_str(), "16859", 5)) {
             // Oneplus 5
+            LOG(INFO) << "Device: OnePlus 5";
             property_set("ro.display.series", "OnePlus 5");
             unknownDevice = false;
         }
         else if (!strncmp(device.c_str(), "17801", 5)) {
             // Oneplus 5T
+            LOG(INFO) << "Device: OnePlus 5T";
             property_set("ro.display.series", "OnePlus 5T");
             unknownDevice = false;
         }
@@ -98,6 +107,7 @@ void init_target_properties()
     }
 
     if (unknownDevice) {
+        LOG(INFO) << "Device: UNKNOWN";
         property_set("ro.display.series", "UNKNOWN");
     }
 }
@@ -109,9 +119,11 @@ void init_fingerprint_properties()
     if (ReadFileToString(SENSOR_VERSION_FILE, &sensor_version)) {
         LOG(INFO) << "Loading Fingerprint HAL for sensor version " << sensor_version;
         if (Trim(sensor_version) == "1" || Trim(sensor_version) == "2") {
+            LOG(INFO) << "Fingerprint sensor: fpc";
             property_set("ro.hardware.fingerprint", "fpc");
         }
         else if (Trim(sensor_version) == "3") {
+            LOG(INFO) << "Fingerprint sensor: goodix";
             property_set("ro.hardware.fingerprint", "goodix");
         }
         else {
@@ -192,4 +204,20 @@ void vendor_load_properties() {
     init_target_properties();
     init_fingerprint_properties();
     init_alarm_boot_properties();
+
+    std::string device;
+    std::string platform = GetProperty("ro.board.platform", "");
+
+    // fingerprint
+    if (ReadFileToString(DEVINFO_FILE, &device)) {
+        if (!strncmp(device.c_str(), "16859", 5)) {
+            // Oneplus 5
+            property_override("ro.build.description", "OnePlus5-user 9 PKQ1.180716.001 1812232046 release-keys");
+        }
+        else if (!strncmp(device.c_str(), "17801", 5)) {
+            // Oneplus 5T
+            property_override("ro.build.description", "OnePlus5T-user 9 PKQ1.180716.001 1812232046 release-keys");
+        }
+    }
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/walleye/walleye:10/QQ2A.200305.002/6138846:user/release-keys");
 }
