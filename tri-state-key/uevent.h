@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 The CyanogenMod Project
+ * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-package org.lineageos.pocketmode;
+#ifndef _INIT_UEVENT_H
+#define _INIT_UEVENT_H
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
+#include <string>
 
-public class BootCompletedReceiver extends BroadcastReceiver {
+namespace android {
 
-    private static final String TAG = "OneplusPocketMode";
+struct Uevent {
+    std::string action;
+    std::string name;
+    std::string state;
+};
 
-    @Override
-    public void onReceive(final Context context, Intent intent) {
-        Log.d(TAG, "Starting");
-        context.startService(new Intent(context, PocketModeService.class));
-    }
-}
+}  // namespace android
+
+#endif
