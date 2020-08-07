@@ -33,7 +33,8 @@ TARGET_BOOT_ANIMATION_RES := 1080
 
 # AncientOS
 PRODUCT_PACKAGES += \
-    AncientParts
+    AncientParts \
+    DeviceSettings
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
