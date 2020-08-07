@@ -6,6 +6,8 @@ allow cameraserver shell_exec:file { r_file_perms };
 
 allow cameraserver hal_perf_hwservice:hwservice_manager { find };
 
+allow cameraserver system_data_file:file { getattr open write };
+
 binder_call(cameraserver, hal_perf_default)
 binder_call(cameraserver, hal_configstore_default)
 binder_call(cameraserver, mediacodec)
@@ -15,3 +17,4 @@ allow hal_nfc_default nfc_data_file:dir { search };
 allow hal_nfc_default nfc_data_file:file { r_file_perms };
 
 get_prop(cameraserver, persist_camera_prop)
+

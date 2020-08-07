@@ -21,3 +21,6 @@ get_prop(hal_camera_default, vendor_system_prop)
 set_prop(hal_camera_default, diag_prop)
 
 allow hal_camera_default persist_camera_prop:property_service set;
+allow hal_camera sysfs:file read;
+allow hal_camera sdcardfs:dir { search };
+allow hal_camera sdcardfs:file { rw_file_perms };

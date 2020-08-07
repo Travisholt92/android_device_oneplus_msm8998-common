@@ -7,7 +7,11 @@ vendor.oem.device.imeicache1           u:object_r:radio_prop:s0
 # Bluetooth
 ro.vendor.bt.bdaddr_path               u:object_r:vendor_bluetooth_prop:s0
 
-# Camera
+#Camera
+camera.opfb.                      u:object_r:exported_system_prop:s0
+persist.camera.                   u:object_r:exported_system_prop:s0
+persist.opcamera.                 u:object_r:exported_system_prop:s0
+ro.camera.                        u:object_r:exported_system_prop:s0
 camera.on                              u:object_r:persist_camera_prop:s0
 vendor.camera.hal1.packagelist         u:object_r:persist_camera_prop:s0
 

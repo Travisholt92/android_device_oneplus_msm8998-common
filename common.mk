@@ -177,11 +177,13 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     camera.device@1.0-impl \
-    camera.device@3.2-impl \
-    Snap
+    camera.device@3.2-impl
 
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.camera.device@1.0
+    vendor.qti.hardware.camera.device@1.0 \
+    vendor.oneplus.camera.CameraHIDL@1.0 \
+    vendor.oneplus.camera.CameraHIDL@1.0-adapter-helper \
+    vendor.oneplus.camera.CameraHIDL-V1.0-java
 
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
@@ -472,7 +474,8 @@ PRODUCT_SHIPPING_API_LEVEL := 25
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    device/oneplus/msm8998-common
+    device/oneplus/msm8998-common \
+    device/oneplus/common
 
 # Tetheroffload
 PRODUCT_PACKAGES += \
