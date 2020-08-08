@@ -14,6 +14,8 @@ persist.opcamera.                 u:object_r:exported_system_prop:s0
 ro.camera.                        u:object_r:exported_system_prop:s0
 camera.on                              u:object_r:persist_camera_prop:s0
 vendor.camera.hal1.packagelist         u:object_r:persist_camera_prop:s0
+persist.camera.privapp.                u:object_r:vendor_camera_prop:s0
+persist.vendor.camera.                 u:object_r:vendor_camera_prop:s0
 
 # Display
 persist.vendor.color.matrix            u:object_r:vendor_display_prop:s0
