@@ -9,3 +9,4 @@ allow system_app sysfs_fpc:file { rw_file_perms };
 
 # Allow system app to access for camera prop
 get_prop(system_app, persist_camera_prop)
+get_prop(appdomain, vendor_camera_prop)
