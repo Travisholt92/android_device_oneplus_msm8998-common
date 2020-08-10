@@ -34,8 +34,7 @@ TARGET_BOOT_ANIMATION_RES := 1080
 
 # AncientOS
 PRODUCT_PACKAGES += \
-    AncientParts \
-    tri-state-key_daemon
+    AncientParts
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -238,8 +237,7 @@ PRODUCT_PACKAGES += \
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service \
-    fingerprintd \
-    OneplusPocketMode
+    fingerprintd
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
@@ -393,6 +391,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml \
     $(LOCAL_PATH)/configs/product-privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/product-privapp-permissions-qti.xml
 
+# Pocketmode
+PRODUCT_PACKAGES += \
+    OneplusPocketMode
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service-qti
@@ -496,6 +498,10 @@ PRODUCT_PACKAGES += \
 # Touch
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.oneplus_msm8998
+
+# tri-state-key
+PRODUCT_PACKAGES += \
+		KeyHandler
 
 # USB
 PRODUCT_PACKAGES += \
