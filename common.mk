@@ -96,6 +96,9 @@ PRODUCT_CHARACTERISTICS := nosdcard
 # ATRACE_HAL
 PRODUCT_PACKAGES += \
     android.hardware.atrace@1.0-service
+# AOSiP Device Settings
+PRODUCT_PACKAGES += \
+    DeviceSettings
 
 # Audio
 PRODUCT_PACKAGES += \

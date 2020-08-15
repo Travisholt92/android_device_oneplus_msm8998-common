@@ -97,6 +97,7 @@ void init_target_properties()
             // Oneplus 5T
             LOG(INFO) << "Device: OnePlus 5T";
             property_set("ro.display.series", "OnePlus 5T");
+            set_ro_fingerprint(source, "OnePlus/OnePlus5T/OnePlus5T:10/QKQ1.191014.012/2006012146:user/release-keys");
             unknownDevice = false;
         }
 
@@ -216,7 +217,7 @@ void vendor_load_properties() {
         }
         else if (!strncmp(device.c_str(), "17801", 5)) {
             // Oneplus 5T
-            property_override("ro.build.description", "OnePlus5T-user 9 PKQ1.180716.001 1812232046 release-keys");
+            property_override("ro.build.description", "OnePlus5T-user 10 QKQ1.191014.012 2006012146 release-keys");
         }
     }
     property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/walleye/walleye:10/QQ2A.200305.002/6138846:user/release-keys");
